@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-namespace Assistant.Application.Auth.Commands.Login
+namespace Assistant.Application.Auth.Commands.RegisterUser
 {
-    public class LoginQuery : IRequest<Guid>
+    public class RegisterUserCommand : IRequest<Guid>
     {
         public string Email { get; set; }
 

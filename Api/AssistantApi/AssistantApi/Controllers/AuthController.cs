@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Assistant.Application.Auth.Commands.Login;
+using Assistant.Application.Auth.Commands.RegisterUser;
 
 namespace AssistantApi.Controllers
 {
@@ -13,7 +13,7 @@ namespace AssistantApi.Controllers
             : base(mediator) { }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Login(LoginQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> Login(RegisterUserCommand query, CancellationToken cancellationToken)
         {
             var dto = await Mediator.Send(query, cancellationToken);
 
@@ -21,7 +21,7 @@ namespace AssistantApi.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Create(LoginQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> Create(RegisterUserCommand query, CancellationToken cancellationToken)
         {
             var dto = await Mediator.Send(query, cancellationToken);
 
