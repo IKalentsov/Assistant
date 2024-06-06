@@ -7,6 +7,6 @@ namespace Assistant.Application.Common.Interfaces
         Task<User> GetUserAsync(string email, CancellationToken cancellationToken = default);
         Task<User> GetUserAsync(Guid id, CancellationToken cancellationToken = default);
         Task<Guid> CreateUserAsync(User userModel, CancellationToken cancellationToken = default);
-        Task<bool> CheckUserAsync(string email);
+        Task<bool> CheckUserAsync(string email, CancellationToken cancellationToken = default);
     }
 }

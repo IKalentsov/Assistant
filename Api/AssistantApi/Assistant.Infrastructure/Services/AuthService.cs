@@ -11,12 +11,12 @@ namespace Assistant.Infrastructure.Services
         {
             _databaseContext = databaseContext;
             _encrypt = encrypt;
-        }
+    }
 
         private readonly IDatabaseContext _databaseContext;
         private readonly IEncrypt _encrypt;
 
-        public async Task<Guid> CreateUserAsync(User user, CancellationToken cancellationToken = default)
+    public async Task<Guid> CreateUserAsync(User user, CancellationToken cancellationToken = default)
         {
             HashingPassword(user);
 
@@ -27,9 +27,9 @@ namespace Assistant.Infrastructure.Services
             return user.Id;
         }
 
-        public async Task<bool> CheckUserAsync(string email)
+        public async Task<bool> CheckUserAsync(string email, CancellationToken cancellationToken = default)
         {
-            var user = await _databaseContext.Users.FirstOrDefaultAsync(x => x.Email == email);
+            var user = await _databaseContext.Users.FirstOrDefaultAsync(x => x.Email == email, cancellationToken);
 
             return user is null;
         }
@@ -62,6 +62,10 @@ namespace Assistant.Infrastructure.Services
             return user ?? new User();
         }
     
+        public void Login(Guid userId)
+        {
+        }
+
         private void HashingPassword(User user)
         {
             user.Salt = Guid.NewGuid().ToString();
