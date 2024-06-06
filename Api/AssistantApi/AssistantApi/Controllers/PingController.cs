@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssistantApi.Controllers
@@ -11,10 +10,10 @@ namespace AssistantApi.Controllers
         public PingController(IMediator mediator)
             : base(mediator) { }
 
-        [HttpPost]
-        public IActionResult Ping()
+        [HttpGet]
+        public async Task<IActionResult> Ping ()
         {
-            return Ok("Я живой");
+            return Ok(0);
         }
     }
 }

@@ -55,6 +55,8 @@ public class Program
 
         app.UseRouting();
 
+        app.UseCors("EnableCORS");
+
         app.MapControllers();
     }
 
@@ -66,6 +68,14 @@ public class Program
         services.AddConfigureSettings(_configuration);
         services.AddInfrastructure(_configuration);
         services.AddOptions();
+
+        services.AddCors (options =>
+        {
+            options.AddPolicy ("EnableCORS", builder =>
+            {
+                builder.AllowAnyOrigin ().AllowAnyHeader ().AllowAnyMethod ().Build ();
+            });
+        });
 
         services.AddAuthorization();
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
