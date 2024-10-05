@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GeneralComponent } from './general/general.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InputSelectComponent } from './_platform/form/input-select/input-select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GeneralComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    GeneralComponent,
+    InputSelectComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

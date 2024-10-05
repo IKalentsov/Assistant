@@ -2,11 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
+import { InputSelectComponent } from '../_platform/form/input-select/input-select.component';
 
 @Component({
-  selector: 'app-general',
+  standalone: true,
+  selector: 'general',
   templateUrl: './general.component.html',
-  styleUrl: './general.component.css'
+  styleUrl: './general.component.scss',
+  imports: [InputSelectComponent],
 })
 export class GeneralComponent implements OnInit {
   private _url = 'ping'
